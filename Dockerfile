@@ -1,10 +1,4 @@
-FROM ubuntu
-MAINTAINER "prerit mathur"
-#Install git
-RUN apt-get update \        
-     apt-get install -y git
-RUN mkdir /home/sampleTest \      
-           cd /home/sampleTest \        
-           git clone https://github.com/prerit96/docker2.git
-#Set working directory
-WORKDIR /home/sampleTest
+FROM java:8
+EXPOSE 8080
+ADD /target/docker1-0.0.1-SNAPSHOT.jar docker1.jar
+ENTRYPOINT ["java","-jar","docker1.jar"]
