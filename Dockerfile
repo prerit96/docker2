@@ -1,7 +1,8 @@
 FROM java:8
 EXPOSE 8800
-RUN git clone prerit96:Prerit@1996@https://github.com/prerit96/docker2.git E:/Office/POC/dock-git
+RUN git clone https://github.com/prerit96/docker2.git /var/www/java
 
 FROM maven:3.5-jdk-8-alpine
-WORKDIR E:/Office/POC/dock-git
+WORKDIR /var/www/java
+RUN ls
 RUN mvn clean install
